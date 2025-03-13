@@ -1,5 +1,48 @@
 <?php
 
+if (!defined('ABSPATH')) {
+	exit;
+}
+
+add_filter('xmlrpc_enabled', '__return_false');
+
+add_filter('xmlrpc_methods', function($methods) {
+    unset($methods['pingback.ping']);
+    unset($methods['pingback.extensions.getPingbacks']);
+    return $methods;
+});
+
+remove_action('wp_head', 'wp_generator');
+
+add_filter('the_generator', '__return_empty_string');
+
+function add_security_headers() {
+	header('X-Content-Type-Options: nosniff');
+	header('X-Frame-Options: SAMEORIGIN');
+	header('X-XSS-Protection: 1; mode=block');
+	header('Referrer-Policy: strict-origin-when-cross-origin');
+	if (is_ssl()) {
+			header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
+	}
+}
+add_action('send_headers', 'add_security_headers');
+
+function safe_query_example($user_input) {
+	global $wpdb;
+	$result = $wpdb->get_results(
+			$wpdb->prepare(
+					"SELECT * FROM {$wpdb->posts} WHERE post_title LIKE %s",
+					'%' . $wpdb->esc_like($user_input) . '%'
+			)
+	);
+	return $result;
+}
+
+/**
+ * add custom menu(include)
+ */
+require get_template_directory() . '/inc/update-checker.php';
+
 /**
  * initial settings
  */
