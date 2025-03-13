@@ -1,0 +1,127 @@
+.custom-setting {
+  max-width: 1056px;
+  background: #fff;
+  padding: 24px 48px;
+  border-radius: 10px;
+  margin: 32px 16px;
+  box-sizing: border-box;
+  box-shadow: 0 0 32px #ccc;
+  user-select: none;
+}
+
+.custom-setting * {
+  color: #333;
+  letter-spacing: 0.01em;
+  line-height: 2 !important;
+  font-size: 16px;
+}
+
+.custom-setting form {
+  margin: 56px 0 32px;
+}
+
+.custom-setting h2 {
+  position: relative;
+  padding-left: 24px;
+  cursor: pointer;
+  background: #f9f9f9;
+  padding: 8px 8px 8px 24px;
+  margin: 0 !important;
+  transition: opacity 0.1s !important;
+  margin-bottom: 14px !important;
+  box-shadow: 0 0 4px #ccc;
+  border-radius: 8px;
+}
+
+.custom-setting h2:hover {
+  opacity: 0.6;
+  transition: opacity 0.1s !important;
+}
+
+.custom-setting h2::before {
+  content: '▶';
+  position: absolute;
+  top: 0;
+  left: 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+}
+
+.custom-setting h2.open::before {
+  transform: rotate(90deg);
+}
+
+.custom-setting table {
+  display: none;
+  width: 95%;
+  margin: auto auto 80px auto;
+}
+
+.custom-setting input[type='text'] {
+  width: 100%;
+  border-color: #e8e8e8;
+  padding: 8px 16px;
+}
+
+.custom-setting input[type='radio'] {
+  border-color: #e8e8e8;
+  padding: 4px;
+}
+
+.custom-setting input:focus-visible,
+.custom-setting select:focus-visible {
+  outline: 2px solid skyblue;
+}
+
+.custom-setting select {
+  width: 100%;
+  border-color: #ddd;
+  padding: 8px 16px;
+}
+.custom-setting .submit {
+  margin-top: 48px;
+}
+
+.custom-setting .submit #submit {
+  padding: 8px 24px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  color: #31b8ef;
+  background: #fff;
+  border-color: #31b8ef;
+}
+
+.custom-setting .notice {
+  border: none;
+  box-shadow: none;
+  text-align: center;
+  font-weight: bold;
+  opacity: 1;
+  transition: opacity 0.2s;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-setting .notice p {
+  margin: 0;
+}
+
+.custom-setting .notice p::before {
+  content: "\f12a";
+  font-family: "dashicons";
+  color: #4dba45;
+  font-size: 20px;
+  vertical-align: text-bottom;
+  line-height: 1;
+}
+
+.custom-setting button {
+  bottom: 0;
+  display: none;
+}
