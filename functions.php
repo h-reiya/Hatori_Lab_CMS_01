@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * add custom menu(include)
+ */
+require get_template_directory() . '/inc/update-checker.php';
+
 if (!defined('ABSPATH')) {
 	exit;
 }
@@ -37,11 +42,6 @@ function safe_query_example($user_input) {
 	);
 	return $result;
 }
-
-/**
- * add custom menu(include)
- */
-require get_template_directory() . '/inc/update-checker.php';
 
 /**
  * initial settings
